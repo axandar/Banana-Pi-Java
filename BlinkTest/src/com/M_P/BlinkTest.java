@@ -36,27 +36,27 @@ public class BlinkTest{
 		sftp.download("loremipsum.txt", "D:/loremipsum2.txt");
 		sftp.close_connection();**/
 		
-		String ilosc_miejsca = ZajetoscDysku();
+		String ilosc_miejsca = DiskSpace();
 		System.out.println(ilosc_miejsca);
 
 		return;
 	}
 	
-	public static String ZajetoscDysku() throws IOException{
+	public static String DiskSpace() throws IOException{
 		String s = null;
-		String wynik = null;
-		int gdzie_m = 0;
+		String output = null;
+		int where_m = 0;
 		try{
 			String[] command = { "du", "-hs", "/home" };         
 			Process process = Runtime.getRuntime().exec(command);
 			BufferedReader reader = new BufferedReader(new InputStreamReader(        
 			process.getInputStream()));
 			s = reader.readLine();
-			gdzie_m = s.indexOf("M");
-			wynik = s.substring(0, gdzie_m);
+			where_m = s.indexOf("M");
+			output = s.substring(0, where_m);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return wynik;
+		return output;
 	}
 }
