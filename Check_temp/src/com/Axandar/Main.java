@@ -15,13 +15,11 @@ public class Main {
 				temp = Temperature();
 				System.out.println(temp);
 				if(temp>28000){
-					System.out.println("WYLACZANIE");
+					System.out.println("Turning Off");
 					TurnOff();
 				}
 				Thread.sleep(5000);
-			}catch(InterruptedException e){
-				System.out.println("zosta³em obudzony przedwczeœnie");
-			}
+			}catch(InterruptedException e){	}
 		}
 
 	}
